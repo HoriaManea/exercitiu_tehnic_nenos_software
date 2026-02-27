@@ -8,6 +8,17 @@ def load_document(path: str) -> Document:
         raise FileNotFoundError(f"File not found: {path}")
     return Document(path)
 
+def extract_table_paragraphs(table):
+    paragraphs = []
+
+    for row in table.rows:
+        for cell in row.cells:
+            paragraphs.extend(cell.paragraphs)
+
+            for inner_table in cell.tables:
+                paragraphs.extend(extract_table_paragraphs(inner_table))
+
+    return paragraphs
 
 def find_placeholders(document: Document):
     placeholders = []
