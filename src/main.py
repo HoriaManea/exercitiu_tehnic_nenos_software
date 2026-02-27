@@ -8,8 +8,8 @@ if __name__ == "__main__":
 
     placeholders = find_placeholders(document)
 
-    for p in placeholders:
-        print({
-            "label": p["label"],
-            "placeholder": p["placeholder"]
-        })
+    # for p in placeholders:
+        # print({
+        #     "label": p["label"],
+        #     "placeholder": p["placeholder"]
+        # })
