@@ -16,10 +16,10 @@ def extract_table_paragraphs(table):
             paragraphs.extend(cell.paragraphs)
 
             for inner_table in cell.tables:
-                paragraphs.extend(extract_table_paragraphs(inner_table))                
+                paragraphs.extend(extract_table_paragraphs(inner_table))
 
-    return placeholders
-    
+    return paragraphs
+
 def find_placeholders(document: Document):
     placeholders = []
 
