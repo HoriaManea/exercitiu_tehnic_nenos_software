@@ -25,6 +25,13 @@ def find_placeholders(document: Document):
 
     pattern = re.compile(r"[_\.]{3,}")  
 
+    all_paragraphs = []
+
+    all_paragraphs.extend(document.paragraphs)
+
+    for table in document.tables:
+        all_paragraphs.extend(extract_table_paragraphs(table))
+
     for i, paragraph in enumerate(document.paragraphs):
         matches = pattern.findall(paragraph.text)
         if matches:
@@ -44,6 +51,5 @@ if __name__ == "__main__":
 
     placeholders = find_placeholders(document)
 
-    print("\nFound placeholders:\n")
     for p in placeholders:
         print(p)
