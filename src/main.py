@@ -8,8 +8,6 @@ if __name__ == "__main__":
 
     placeholders = find_placeholders(document)
 
-    # for p in placeholders:
-        # print({
-        #     "label": p["label"],
-        #     "placeholder": p["placeholder"]
-        # })
+    print(len(document.paragraphs))
+    print(len(document.tables))
+    print(len(placeholders))
