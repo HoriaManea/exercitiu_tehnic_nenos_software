@@ -26,14 +26,15 @@ def find_placeholders(document: Document):
         
 
 
-    for i, paragraph in enumerate(document.paragraphs):
-        matches = pattern.findall(paragraph.text)
+    for paragraph in all_paragraphs:
+        full_text = paragraph.text
+
+        matches = pattern.findall(full_text)
         if matches:
             placeholders.append({
-                "type": "paragraph",
-                "index": i,
-                "text": paragraph.text,
-                "matches": matches
-            })
+            "paragraph": paragraph,
+            "text": full_text,
+            "matches": matches
+})
 
     return placeholders

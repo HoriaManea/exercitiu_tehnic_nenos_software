@@ -1,5 +1,5 @@
 from load_document import load_document
-from find_placeholder import find_placeholders
+from find_placeholders import find_placeholders
 
 
 if __name__ == "__main__":
