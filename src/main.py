@@ -1,5 +1,5 @@
 from load_document import load_document
-from find_placeholder import find_placeholders
+from find_placeholders import find_placeholders
 
 
 if __name__ == "__main__":
@@ -8,5 +8,6 @@ if __name__ == "__main__":
 
     placeholders = find_placeholders(document)
 
-    for p in placeholders:
-        print(p)
+    print(len(document.paragraphs))
+    print(len(document.tables))
+    print(len(placeholders))
