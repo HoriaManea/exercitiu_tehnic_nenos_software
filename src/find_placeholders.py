@@ -27,20 +27,14 @@ def find_placeholders(document: Document):
 
 
     for paragraph in all_paragraphs:
-        for run in paragraph.runs:
-            run_text = run.text
-            matches = list(pattern.finditer(run_text))
+        full_text = paragraph.text
 
-            for match in matches:
-                placeholders.append({
-                    "paragraph_obj": paragraph,
-                    "run_obj": run,
-                    "placeholder": match.group(),
-                    "start_in_run": match.start(),
-                    "end_in_run": match.end(),
-                    "context": paragraph.text,
-                    "runs_count": len(paragraph.runs)
-                })
+        matches = pattern.findall(full_text)
+        if matches:
+            placeholders.append({
+            "paragraph": paragraph,
+            "text": full_text,
+            "matches": matches
+})
 
     return placeholders
-
